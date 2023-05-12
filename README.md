@@ -1,6 +1,6 @@
 <h1 align="center"><span><img src='screenshots/logo.png' height='30px' style='margin-right:10px;'/></span>CoDev</h1>
 <h2 align="center">Collaborate with some of the best developers around the world</h2>
-<!-- <h3 align="center">Live at https://codevv.herokuapp.com</h3> -->
+<h3 align="center">Live at https://codev-w7fu.onrender.com/</h3>
 
 ---
 
