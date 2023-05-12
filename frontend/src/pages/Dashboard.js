@@ -1,32 +1,15 @@
 /* eslint-disable */
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useCookies } from "react-cookie";
 import { Oval } from "react-loader-spinner";
 import ProfileCard from "../components/ProfileCard";
 import { api } from "../api";
+import { useNavigate } from "react-router-dom";
 
-export default function Dashboard({ user, setCurUser }) {
+export default function Dashboard({ users, setCurUser }) {
   const [cookies, setCookie, removeCookie] = useCookies(["user"]);
-  const [users, setUsers] = useState(null);
 
-  useEffect(() => {
-    // console.log('here');
-    let isSubscribed = true;
-    const fetchData = async () => {
-      const params = {
-        user_id: cookies["UserId"],
-      };
-      const data = await api.getAllUsers(params);
-
-      if (isSubscribed) {
-        const shuffledUsers = data.data.sort(() => Math.random() - 0.5);
-        setUsers(shuffledUsers);
-      }
-    };
-    fetchData().catch(console.error);
-
-    return () => (isSubscribed = false);
-  }, [cookies["UserId"]]);
+  const navigate = useNavigate();
 
   const handleMatch = async (id) => {
     try {
@@ -37,7 +20,7 @@ export default function Dashboard({ user, setCurUser }) {
       const data = await api.matchUser(params);
       // console.log(data);
       setCurUser(data.data);
-      window.location.reload();
+      navigate('/chat');
     } catch (e) {
       console.log(e);
     }
@@ -51,7 +34,7 @@ export default function Dashboard({ user, setCurUser }) {
       const data = await api.rejectUser(params);
       // console.log(data);
       setCurUser(data.data);
-      window.location.reload();
+      navigate('/rejectedusers');
     } catch (e) {
       console.log(e);
     }

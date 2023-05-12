@@ -18,9 +18,11 @@ import ChatContainer from "./pages/ChatContainer";
 import { api } from "./api";
 import Resume from "./pages/Resume";
 import SkillBased from "./pages/SkillBased";
+import Hackathons from "./pages/Hackathons";
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(["user"]);
   const [user, setUser] = useState(null);
+  const [users, setUsers] = useState(null);
 
   useEffect(() => {
     let isSubscribed = true;
@@ -36,6 +38,25 @@ function App() {
 
       if (isSubscribed) {
         setUser(data.data);
+      }
+    };
+    fetchData().catch(console.error);
+
+    return () => (isSubscribed = false);
+  }, [cookies["UserId"]]);
+
+  useEffect(() => {
+    // console.log('here');
+    let isSubscribed = true;
+    const fetchData = async () => {
+      const params = {
+        user_id: cookies["UserId"],
+      };
+      const data = await api.getAllUsers(params);
+
+      if (isSubscribed) {
+        const shuffledUsers = data.data.sort(() => Math.random() - 0.5);
+        setUsers(shuffledUsers);
       }
     };
     fetchData().catch(console.error);
@@ -85,12 +106,12 @@ function App() {
               element={<Navigate to="/createprofile" />}
             />
           )}
-          {/* {user && !user.profile_completed && (
+          {user && !user.profile_completed && (
             <Route
-              path="/skillbased"
+              path="/hackathons"
               element={<Navigate to="/createprofile" />}
             />
-          )} */}
+          )}
           {user && user.profile_completed && (
             <Route
               path="/createprofile"
@@ -157,23 +178,23 @@ function App() {
                 {cookies["UserId"] && (
                   <>
                     <Navbar user={user} solid={true} />
-                    <Dashboard user={user} setCurUser={setUser} />
+                    <Dashboard users={users} setCurUser={setUser} />
                   </>
                 )}
                 {!cookies["UserId"] && <Navigate to="/" />}
               </>
             }
           />
-          {/* <Route
-            path="/skillbased"
+          <Route
+            path="/hackathons"
             element={
               <>
                 {cookies["UserId"] && <><Navbar user={user} solid={true} />
-                <SkillBased/></>}
+                <Hackathons/></>}
                 {!cookies["UserId"] && <Navigate to='/'/>}
               </>
             }
-          /> */}
+          />
           <Route
             path="/profile/:id"
             element={

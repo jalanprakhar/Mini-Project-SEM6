@@ -55,7 +55,7 @@ export default function Navbar({ user, solid }) {
               Co<span className="text-[#fe5740]">Dev</span>
             </Link>
             <button
-              className=" cursor-pointer leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+              className=" cursor-pointer leading-none px-6 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
               type="button"
               onClick={() => setNavbarOpen(!navbarOpen)}
             >
@@ -77,14 +77,14 @@ export default function Navbar({ user, solid }) {
             }
             id="example-navbar-danger"
           >
-            <ul className="flex flex-col lg:flex-row list-none lg:ml-auto justify-center lg:items-center">
+            <ul className="flex flex-col lg:flex-row list-none lg:ml-auto justify-between lg:items-center">
               {!user && (
                 <li className="nav-item">
                   <Link
                     className={
                       splitLocation[1] === "signup"
-                        ? "px-3 py-2 flex items-center text-lg font-semibold leading-snug text-[#fd2f6e] hover:opacity-75 lg:border-b-2 border-[#fd2f6e]"
-                        : "px-3 py-2 flex items-center text-lg font-semibold leading-snug text-[#2f2e41] hover:opacity-75"
+                        ? "px-6 py-2 flex items-center text-base font-semibold leading-snug text-[#fd2f6e] hover:opacity-75"
+                        : "px-6 py-2 flex items-center text-base font-semibold leading-snug text-[#2f2e41] hover:opacity-75"
                     }
                     to="/signup"
                     onClick={() => setNavbarOpen(!navbarOpen)}
@@ -98,8 +98,8 @@ export default function Navbar({ user, solid }) {
                   <Link
                     className={
                       splitLocation[1] === "login"
-                        ? "px-3 py-2 flex items-center text-lg font-semibold leading-snug text-[#fd2f6e] hover:opacity-75 lg:border-b-2 border-[#fd2f6e]"
-                        : "px-3 py-2 flex items-center text-lg font-semibold leading-snug text-[#2f2e41] hover:opacity-75"
+                        ? "px-6 py-2 flex items-center text-base font-semibold leading-snug text-[#fd2f6e] hover:opacity-75"
+                        : "px-6 py-2 flex items-center text-base font-semibold leading-snug text-[#2f2e41] hover:opacity-75"
                     }
                     to="/login"
                     onClick={() => setNavbarOpen(!navbarOpen)}
@@ -111,24 +111,52 @@ export default function Navbar({ user, solid }) {
               {user && (
                 <li className="nav-item">
                   <Link
-                    className="px-3 py-2 flex items-center text-lg font-semibold leading-snug hover:opacity-75"
-                    to="/dashboard"
+                    className="px-6 py-2 flex items-center text-base font-semibold leading-snug hover:opacity-75"
+                    to="/hackathons"
                     onClick={() => {
                       setNavbarOpen(!navbarOpen);
                     }}
                   >
-                    <i
+                    {/* <i
                       className={
                         splitLocation[1] === "dashboard"
                           ? "fa-solid fa-users text-2xl hidden lg:block lg:mr-10 text-[#fd2f6e] lg:border-b-2 border-[#fd2f6e]"
                           : "fa-solid fa-users text-2xl hidden lg:block lg:mr-10 text-[#fd2f6e]"
                       }
-                    ></i>
+                    ></i> */}
+                    <span
+                      className={
+                        splitLocation[1] === "hackathons"
+                          ? "text-left block text-[#fd2f6e]"
+                          : "text-left block"
+                      }
+                    >
+                      Hackathons
+                    </span>
+                  </Link>
+                </li>
+              )}
+              {user && (
+                <li className="nav-item">
+                  <Link
+                    className="px-6 py-2 flex items-center text-base font-semibold leading-snug hover:opacity-75"
+                    to="/dashboard"
+                    onClick={() => {
+                      setNavbarOpen(!navbarOpen);
+                    }}
+                  >
+                    {/* <i
+                      className={
+                        splitLocation[1] === "dashboard"
+                          ? "fa-solid fa-users text-2xl hidden lg:block lg:mr-10 text-[#fd2f6e] lg:border-b-2 border-[#fd2f6e]"
+                          : "fa-solid fa-users text-2xl hidden lg:block lg:mr-10 text-[#fd2f6e]"
+                      }
+                    ></i> */}
                     <span
                       className={
                         splitLocation[1] === "dashboard"
-                          ? "text-left block text-[#fd2f6e] lg:hidden"
-                          : "text-left block lg:hidden"
+                          ? "text-left block text-[#fd2f6e]"
+                          : "text-left block"
                       }
                     >
                       Dashboard
@@ -138,7 +166,7 @@ export default function Navbar({ user, solid }) {
               )}
               {/* {user && <li className="nav-item">
                 <Link
-                  className="px-3 py-2 flex items-center text-lg font-semibold leading-snug hover:opacity-75"
+                  className="px-6 py-2 flex items-center text-base font-semibold leading-snug hover:opacity-75"
                   to="/skillbased"
                   onClick={()=>{
                     setNavbarOpen(!navbarOpen)
@@ -150,22 +178,22 @@ export default function Navbar({ user, solid }) {
               {user && (
                 <li className="nav-item">
                   <Link
-                    className="px-3 py-2 flex items-center text-lg font-semibold leading-snug text-[#2f2e41] hover:opacity-75"
+                    className="px-6 py-2 flex items-center text-base font-semibold leading-snug text-[#2f2e41] hover:opacity-75"
                     to="/chat"
                     onClick={() => setNavbarOpen(!navbarOpen)}
                   >
-                    <i
+                    {/* <i
                       className={
                         splitLocation[1] === "chat"
                           ? "fa-solid fa-comment text-2xl hidden lg:block lg:mr-10 text-[#fd2f6e] lg:border-b-2 border-[#fd2f6e]"
                           : "fa-solid fa-comment text-2xl hidden lg:block lg:mr-10 text-[#fd2f6e]"
                       }
-                    ></i>
+                    ></i> */}
                     <span
                       className={
                         splitLocation[1] === "chat"
-                          ? "text-left block text-[#fd2f6e] lg:hidden"
-                          : "text-left block lg:hidden"
+                          ? "text-left block text-[#fd2f6e]"
+                          : "text-left block"
                       }
                     >
                       Chat
@@ -176,22 +204,15 @@ export default function Navbar({ user, solid }) {
               {user && (
                 <li className="nav-item">
                   <Link
-                    className="px-3 py-2 flex items-center text-lg font-semibold leading-snug text-[#2f2e41] hover:opacity-75"
+                    className="px-6 py-2 flex items-center text-base font-semibold leading-snug text-[#2f2e41] hover:opacity-75"
                     to="/rejectedusers"
                     onClick={() => setNavbarOpen(!navbarOpen)}
                   >
-                    <i
-                      className={
-                        splitLocation[1] === "rejectedusers"
-                          ? "fa-solid fa-user-xmark text-2xl hidden lg:block lg:mr-10 text-[#fd2f6e] lg:border-b-2 border-[#fd2f6e]"
-                          : "fa-solid fa-user-xmark text-2xl hidden lg:block lg:mr-10 text-[#fd2f6e]"
-                      }
-                    ></i>
                     <span
                       className={
                         splitLocation[1] === "rejectedusers"
-                          ? "text-left block text-[#fd2f6e] lg:hidden"
-                          : "text-left block lg:hidden"
+                          ? "text-left block text-[#fd2f6e]"
+                          : "text-left block"
                       }
                     >
                       Rejected Users
@@ -202,25 +223,25 @@ export default function Navbar({ user, solid }) {
               {user && (
                 <li className="nav-item">
                   <Link
-                    className="px-3 py-2 flex items-center text-lg font-semibold leading-snug text-[#2f2e41] hover:opacity-75"
+                    className="px-6 py-2 flex items-center text-base font-semibold leading-snug text-[#2f2e41] hover:opacity-75"
                     to="/pendingusers"
                     onClick={() => setNavbarOpen(!navbarOpen)}
                   >
-                    <i
+                    {/* <i
                       className={
                         splitLocation[1] === "pendingusers"
                           ? "fa-solid fa-user-clock text-2xl hidden lg:block lg:mr-10 text-[#fd2f6e] lg:border-b-2 border-[#fd2f6e]"
                           : "fa-solid fa-user-clock text-2xl hidden lg:block lg:mr-10 text-[#fd2f6e]"
                       }
-                    ></i>
+                    ></i> */}
                     <span
                       className={
                         splitLocation[1] === "pendingusers"
-                          ? "text-left block text-[#fd2f6e] lg:hidden"
-                          : "text-left block lg:hidden"
+                          ? "text-left block text-[#fd2f6e]"
+                          : "text-left block"
                       }
                     >
-                      Pending Users
+                      Pending Requests
                     </span>
                   </Link>
                 </li>
@@ -228,7 +249,7 @@ export default function Navbar({ user, solid }) {
               {user && (
                 <li className="nav-item">
                   <Link
-                    className="px-3 py-2 flex items-center text-lg font-semibold leading-snug text-[#2f2e41] hover:opacity-75"
+                    className="px-6 py-2 flex items-center text-base font-semibold leading-snug text-[#2f2e41] hover:opacity-75"
                     to="/profile"
                     onClick={() => setNavbarOpen(!navbarOpen)}
                   >
@@ -245,7 +266,7 @@ export default function Navbar({ user, solid }) {
               {user && (
                 <li className="nav-item">
                   <Link
-                    className="px-3 py-2 flex items-center text-lg font-semibold leading-snug text-[#2f2e41] hover:opacity-75"
+                    className="px-6 py-2 flex items-center text-base font-semibold leading-snug text-[#2f2e41] hover:opacity-75"
                     to="/"
                     onClick={handleLogout}
                   >

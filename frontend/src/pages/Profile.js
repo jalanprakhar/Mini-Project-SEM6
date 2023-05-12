@@ -116,7 +116,7 @@ export default function Profile({ user }) {
         <div className="flex flex-col mt-12 justify-center items-center">
           <div className="-ml-6 -mr-6 md:ml-0 md:mr-0">
             <img
-              src={`https://github-readme-stats.vercel.app/api?username=${user.github_username}&bg_color=fff&color=272727&line=fd2f6e&point=fe5740&custom_title=Github%20Contribution%20Graph`}
+              src={`https://github-readme-stats.vercel.app/api?username=${user.github_username}&bg_color=fff&border_color=fff&show_icons=true&theme=radical&custom_title=Github%20Stats&icon_color=fd2f6e&text_color=272727`}
               alt="Github contribution graph"
             />
           </div>
