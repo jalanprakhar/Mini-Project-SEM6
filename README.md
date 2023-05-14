@@ -10,7 +10,8 @@ CoDev is a social media platform wherein the users can register themselves with 
 
 ## 💡Inspiration
 
-[Me](https://github.com/jalanprakhar) and my team member [Puja Saraf](https://github.com/Puja-Saraf) have always been a hackathon enthusiast. One problem we always ran into was finding the perfect team members for our hacks. We do have some amazing ideas to implement but the required tech stacks sometimes goes out of our bounds. Registering for a hackathon and then forming a team then and there isn't something for us. We'd prefer planning our projects beforehand and get to know our team mates better. That's when we came up with CoDev.
+<!-- [Me](https://github.com/jalanprakhar) and my team member [Puja Saraf](https://github.com/Puja-Saraf)  -->
+We have always been a hackathon enthusiast. One problem we always ran into was finding the perfect team members for our hacks. We do have some amazing ideas to implement but the required tech stacks sometimes goes out of our bounds. Registering for a hackathon and then forming a team then and there isn't something for us. We'd prefer planning our projects beforehand and get to know our team mates better. That's when we came up with CoDev.
 
 ## ❓ About CoDev
 
